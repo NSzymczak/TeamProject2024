@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:AnimalHotel.Page.Login"
         d:DataContext="{d:DesignInstance Type=local:LoginPageModel}"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="LoginPage" Height="500" Width="400">
     <StackPanel VerticalAlignment="Center"
                 Margin="50">

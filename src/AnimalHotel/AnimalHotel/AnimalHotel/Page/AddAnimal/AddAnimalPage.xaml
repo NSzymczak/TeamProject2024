@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:AnimalHotel.Page.AddAnimal"
         d:DataContext="{d:DesignInstance Type=local:AddAnimalPageModel}"
         mc:Ignorable="d"
-        Title="AddAnimalPage" Height="450" Width="800">
+        WindowStartupLocation="CenterScreen"
+        Title="Dodaj zwierzaka" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -26,11 +27,24 @@
                FontSize="25" />
         <StackPanel Orientation="Horizontal"
                     Grid.Row="1"
-                    Grid.ColumnSpan="2">
+                    Grid.Column="0">
             <Label Content="Imię" />
             <TextBox Text="{Binding Animal.Name}"
                      Width="200"
                      Style="{StaticResource TextBoxStyle}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="1"
+                    Grid.Column="1">
+            <Label Content="Właściciel" />
+            <ComboBox SelectedItem="{Binding Animal.Owner}"
+          ItemsSource="{Binding Owners}"
+          Width="200"
+          Style="{StaticResource RoundedComboBox}" />
+            <Button Content="Edytuj" Style="{StaticResource NotImportantButton}"
+                    Height="25" Width="50" FontSize="10"
+                    Margin="10,0"
+                    Command="{Binding EditOwnerCommand}" />
         </StackPanel>
 
         <StackPanel Grid.Row="2"
@@ -184,7 +198,7 @@
                 Style="{StaticResource ImportantButton}"
                     Margin="10,0" />
             <Button Content="Wróć"
-                Style="{StaticResource ImportantButton}"
+                Style="{StaticResource NotImportantButton}"
                     Margin="10,0" />
         </StackPanel>
     </Grid>

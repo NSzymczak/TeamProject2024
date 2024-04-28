@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:AnimalHotel.Page.DailyActivity"
         d:DataContext="{d:DesignInstance Type=local:DailyActivityPageModel}"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
         Title="DailyActivityPage" d:DesignHeight="900" d:DesignWidth="1200">
     <Grid>
         <Grid.RowDefinitions>
@@ -44,7 +46,7 @@
                     Command="{Binding OpenAddVisitCommand}"
                     Style="{StaticResource ImportantButton}" />
             <Button Content="Dodaj nowy wpis" Margin="10" Padding="5"
-                    Command="{Binding }"
+                    Command="{Binding AddNewDailyActivitesCommand}"
                     Style="{StaticResource ImportantButton}" />
             <Button Content="Dodaj zwierzaka" Margin="10" Padding="5"
                     Command="{Binding OpenAddAnimalCommand}"

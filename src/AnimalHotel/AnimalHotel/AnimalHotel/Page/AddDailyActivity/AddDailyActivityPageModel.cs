@@ -1,12 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AnimalHotel.Connection;
+using AnimalHotel.Model;
+using AnimalHotel.Page.AddAnimal;
+using CommunityToolkit.Mvvm.Input;
+using System.Windows;
 
 namespace AnimalHotel.Page.AddDailyActivity
 {
-    public class AddDailyActivityPageModel
+    public partial class AddDailyActivityPageModel(ConnectToDb connectToDb, Model.DailyActivity dailyActivity)
     {
+        public Model.DailyActivity DailyActivity { get; set; } = dailyActivity;
+        public List<Animal>? Animals { get; set; }
+
+        [RelayCommand]
+        public async Task AddOrEditDailyActivity()
+        {
+            await connectToDb.AddOrEditDailyActivity(DailyActivity);
+        }
+
+        [RelayCommand]
+        public async Task Back()
+        {
+        }
+
+        [RelayCommand]
+        public async Task EditAnimal()
+        {
+            if (DailyActivity.Animal != null)
+            {
+                (new AddAnimalPage(DailyActivity.Animal)).ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Ostrzeżenie", "Nie wybrano zwierzaka do edycji", MessageBoxButton.OK);
+            }
+        }
     }
 }

@@ -1,14 +1,22 @@
-﻿using AnimalHotel.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AnimalHotel.Connection;
+using AnimalHotel.Model;
+using CommunityToolkit.Mvvm.Input;
 
 namespace AnimalHotel.Page.AddOwner
 {
-    public class AddOwnerPageModel
+    public partial class AddOwnerPageModel(ConnectToDb connectToDb, Owner owner)
     {
-        public Owner AnimalOwner { get; set; } = new Owner();
+        public Owner AnimalOwner { get; set; } = owner;
+
+        [RelayCommand]
+        public async Task AddOrEditOwner()
+        {
+            await connectToDb.AddOrEditOwner(AnimalOwner);
+        }
+
+        [RelayCommand]
+        public async Task Back()
+        {
+        }
     }
 }

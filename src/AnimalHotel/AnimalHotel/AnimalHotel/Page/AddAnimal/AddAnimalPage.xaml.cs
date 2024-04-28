@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AnimalHotel.Model;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace AnimalHotel.Page.AddAnimal
 {
@@ -19,9 +8,11 @@ namespace AnimalHotel.Page.AddAnimal
     /// </summary>
     public partial class AddAnimalPage : Window
     {
-        public AddAnimalPage()
+        public AddAnimalPage(Animal? animal = null)
         {
             InitializeComponent();
+            animal ??= new Animal();
+            DataContext = new AddAnimalPageModel(new Connection.ConnectToDb(), animal);
         }
     }
 }

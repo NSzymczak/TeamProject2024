@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AnimalHotel.Model;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace AnimalHotel.Page.AddOwner
 {
@@ -19,9 +8,11 @@ namespace AnimalHotel.Page.AddOwner
     /// </summary>
     public partial class AddOwnerPage : Window
     {
-        public AddOwnerPage()
+        public AddOwnerPage(Owner? owner = null)
         {
             InitializeComponent();
+            owner ??= new Owner();
+            DataContext = new AddOwnerPageModel(new Connection.ConnectToDb(), owner);
         }
     }
 }

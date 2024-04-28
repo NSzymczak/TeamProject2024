@@ -9,6 +9,7 @@ namespace AnimalHotel.Model
     public class Visit
     {
         public int ID { get; set; }
+        public Animal? Animal { get; set; }
         public DateTime BeginDate { get; set; }
         public DateTime EndDate { get; set; }
     }

@@ -1,6 +1,9 @@
 ﻿using AnimalHotel.Core.Model;
 using AnimalHotel.Model;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Protocols;
+using System.Configuration;
 
 namespace AnimalHotel.Core;
 
@@ -54,14 +57,10 @@ public partial class AnimalHotelDb : DbContext
         {
             entity.HasKey(e => e.ID);
         });
-
-        //OnModelCreatingPartial(modelBuilder);
     }
-
-    //partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        //optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString);
+        optionsBuilder.UseSqlServer("Data Source=MSI;Initial Catalog=HorseTracking;Persist Security Info=True;Encrypt=False;User ID=Natka;Password=123456");
     }
 }

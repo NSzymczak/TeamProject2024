@@ -6,9 +6,13 @@
         xmlns:local="clr-namespace:AnimalHotel.Page.AddOwner"
         d:DataContext="{d:DesignInstance Type=local:AddOwnerPageModel}"
         mc:Ignorable="d"
-        Title="AddOwnerPage" Height="300" Width="400">
+        WindowStartupLocation="CenterScreen"
+        Title="Dodaj właściciela" Height="400" Width="400">
     <Grid>
         <StackPanel Margin="20">
+            <Label Content="Dodaj właściciela"
+                   Style="{StaticResource TitleLabel}"
+                   HorizontalAlignment="Center" />
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -75,7 +79,7 @@
                     Style="{StaticResource ImportantButton}" />
                 <Button Content="Wróć"
                         Margin="10"
-                    Style="{StaticResource ImportantButton}" />
+                    Style="{StaticResource NotImportantButton}" />
             </StackPanel>
         </StackPanel>
     </Grid>

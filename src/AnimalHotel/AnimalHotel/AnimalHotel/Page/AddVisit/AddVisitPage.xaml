@@ -4,9 +4,66 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnimalHotel.Page.AddVisit"
+        d:DataContext="{d:DesignInstance Type=local:AddVisitPageModel}"
         mc:Ignorable="d"
-        Title="AddVisitPage" Height="450" Width="800">
+        WindowStartupLocation="CenterScreen"
+        Title="Dodaj wizytę" Height="600" Width="400">
     <Grid>
-        
+        <StackPanel Margin="20">
+            <Label Content="Dodaj wizytę"
+                   Style="{StaticResource TitleLabel}"
+                   HorizontalAlignment="Center" />
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Zwierzak"
+                        Style="{StaticResource SmalLabel}"
+                        Grid.Column="0" />
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <ComboBox Text="{Binding Animals}"
+                          SelectedItem="{Binding Visit.Animal}"
+                          Height="30"
+                          Width="150"
+                          Style="{StaticResource RoundedComboBox}" />
+                    <Button Content="Edytuj" Style="{StaticResource NotImportantButton}"
+                    Height="25" Width="50" FontSize="10"
+                    Margin="10,0"
+                    Command="{Binding EditAnimalCommand}" />
+                </StackPanel>
+            </Grid>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Data rozpoczęcia"
+                       Style="{StaticResource SmalLabel}"
+                       Grid.Column="0" />
+                <Calendar SelectedDate="{Binding Visit.BeginDate}"
+                          Grid.Column="1" />
+            </Grid>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Data zakończenia"
+                       Style="{StaticResource SmalLabel}"
+                       Grid.Column="0" />
+                <Calendar SelectedDate="{Binding Visit.EndDate}"
+                          Grid.Column="1" />
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Dalej"
+                        Margin="10"
+                        Style="{StaticResource ImportantButton}"
+                        Command="" />
+                <Button Content="Wróć"
+                        Margin="10"
+                        Style="{StaticResource NotImportantButton}" />
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

@@ -1,24 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace AnimalHotel.Page.AddDailyActivity
 {
     public partial class AddDailyActivityPage : Window
     {
-        public AddDailyActivityPage()
+        public AddDailyActivityPage(Model.DailyActivity? dailyActivity = null)
         {
             InitializeComponent();
+
+            dailyActivity ??= new Model.DailyActivity();
+            DataContext = new AddDailyActivityPageModel(new Connection.ConnectToDb(), dailyActivity);
         }
     }
 }

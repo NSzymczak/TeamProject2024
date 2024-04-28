@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnimalHotel.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,11 @@ namespace AnimalHotel.Page.AddVisit
     /// </summary>
     public partial class AddVisitPage : Window
     {
-        public AddVisitPage()
+        public AddVisitPage(Visit? visit = null)
         {
             InitializeComponent();
+            visit ??= new Visit();
+            DataContext = new AddVisitPageModel(new Connection.ConnectToDb(), visit);
         }
     }
 }
