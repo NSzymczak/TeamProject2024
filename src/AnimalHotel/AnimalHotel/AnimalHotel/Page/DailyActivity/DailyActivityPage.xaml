@@ -1,0 +1,57 @@
+﻿<Window x:Class="AnimalHotel.Page.DailyActivity.DailyActivityPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnimalHotel.Page.DailyActivity"
+        d:DataContext="{d:DesignInstance Type=local:DailyActivityPageModel}"
+        mc:Ignorable="d"
+        Title="DailyActivityPage" d:DesignHeight="900" d:DesignWidth="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <DataGrid Margin="20,20,20,20"
+           ItemsSource="{Binding DailyActivities}"
+           AutoGenerateColumns="False"
+           CanUserDeleteRows="False"
+           CanUserAddRows="False"
+           IsReadOnly="True"
+           FontSize="15"
+           BorderBrush="{StaticResource MainBrush}"
+           HorizontalGridLinesBrush="{StaticResource MainBrush}"
+           VerticalGridLinesBrush="{StaticResource MainBrush}"
+           CellStyle="{StaticResource GreenCell}"
+           HeadersVisibility="Column">
+            <DataGrid.Resources>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn HeaderStyle="{StaticResource GreenHeaders}" Header="Zwierzak" Width="*" Binding="{Binding Animal.Name}" />
+                <DataGridTextColumn HeaderStyle="{StaticResource GreenHeaders}" Header="Data"     Width="*" Binding="{Binding Date}" />
+                <DataGridTextColumn HeaderStyle="{StaticResource GreenHeaders}" Header="Godzina"  Width="*" Binding="{Binding Hour}" />
+                <DataGridTextColumn HeaderStyle="{StaticResource GreenHeaders}" Header="Notatka"  Width="*" Binding="{Binding AdditionalNotes}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    Margin="20,5"
+                    HorizontalAlignment="Center">
+            <Button Content="Dodaj wizytę" Margin="10" Padding="5"
+                    Command="{Binding OpenAddVisitCommand}"
+                    Style="{StaticResource ImportantButton}" />
+            <Button Content="Dodaj nowy wpis" Margin="10" Padding="5"
+                    Command="{Binding }"
+                    Style="{StaticResource ImportantButton}" />
+            <Button Content="Dodaj zwierzaka" Margin="10" Padding="5"
+                    Command="{Binding OpenAddAnimalCommand}"
+                    Style="{StaticResource ImportantButton}" />
+            <Button Content="Dodaj właściciela" Margin="10" Padding="5"
+                    Command="{Binding OpenAddOwnerCommand}"
+                    Style="{StaticResource ImportantButton}" />
+        </StackPanel>
+    </Grid>
+</Window>

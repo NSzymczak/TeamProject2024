@@ -1,0 +1,191 @@
+﻿<Window x:Class="AnimalHotel.Page.AddAnimal.AddAnimalPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnimalHotel.Page.AddAnimal"
+        d:DataContext="{d:DesignInstance Type=local:AddAnimalPageModel}"
+        mc:Ignorable="d"
+        Title="AddAnimalPage" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0"
+               Grid.ColumnSpan="2"
+               Content="Dane zwierzaka"
+               HorizontalAlignment="Center"
+               FontSize="25" />
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2">
+            <Label Content="Imię" />
+            <TextBox Text="{Binding Animal.Name}"
+                     Width="200"
+                     Style="{StaticResource TextBoxStyle}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2"
+                    Grid.Column="0">
+            <Label Content="Detale" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Rasa"
+                   Style="{StaticResource SmalLabel}"
+                   Grid.Column="0" />
+                <TextBox Text="{Binding Animal.Details.Breed}"
+                   Style="{StaticResource TextBoxStyle}"
+                   Grid.Column="1" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Kolor"
+                       Style="{StaticResource SmalLabel}"
+                       Grid.Column="0" />
+                <TextBox Text="{Binding Animal.Details.Color}"
+                         Style="{StaticResource TextBoxStyle}"
+                         Grid.Column="1" />
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3"
+                    Grid.Column="1">
+            <Label Content="Zdrowie" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Status zdrowia"
+                   Style="{StaticResource SmalLabel}" />
+                <TextBox Text="{Binding Animal.Health.HealthStatus}"
+                     Style="{StaticResource TextBoxStyle}"
+                         Grid.Column="1" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Szczepienie"
+                   Style="{StaticResource SmalLabel}" />
+                <TextBox Text="{Binding Animal.Health.Vaccination}"
+                     Style="{StaticResource TextBoxStyle}"
+                         Grid.Column="1" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Dodatkowe informacje"
+                   Style="{StaticResource SmalLabel}" />
+                <TextBox Text="{Binding Animal.Health.AdditionalNotes}"
+                     Style="{StaticResource TextBoxStyle}"
+                         Grid.Column="1" />
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3"
+                    Grid.Column="0">
+            <Label Content="Jedzenie" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Rodzaj jedzenia"
+                   Style="{StaticResource SmalLabel}" />
+                <TextBox Text="{Binding Animal.FeedingRules.FoodType}"
+                     Style="{StaticResource TextBoxStyle}"
+                         Grid.Column="1" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Częstotliwość"
+                   Style="{StaticResource SmalLabel}" />
+                <TextBox Text="{Binding Animal.FeedingRules.Frequency}"
+                     Style="{StaticResource TextBoxStyle}"
+                         Grid.Column="1" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Godziny"
+                   Style="{StaticResource SmalLabel}" />
+                <TextBox Text="{Binding Animal.FeedingRules.Hours}"
+                     Style="{StaticResource TextBoxStyle}"
+                         Grid.Column="1" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Dodatkowe informacje"
+                   Style="{StaticResource SmalLabel}" />
+                <TextBox Text="{Binding Animal.FeedingRules.AdditionalNotes}"
+                     Style="{StaticResource TextBoxStyle}"
+                         Grid.Column="1" />
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2"
+                    Grid.Column="1">
+            <Label Content="Spacery" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Godziny spacerów"
+                       Style="{StaticResource SmalLabel}" />
+                <TextBox Text="{Binding Animal.WalkRules.Hours}"
+                         Style="{StaticResource TextBoxStyle}"
+                         Grid.Column="1" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Długość spacerów"
+                       Style="{StaticResource SmalLabel}" />
+                <TextBox Text="{Binding Animal.WalkRules.Length}"
+                         Style="{StaticResource TextBoxStyle}"
+                         Grid.Column="1" />
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button Content="Dodaj"
+                Style="{StaticResource ImportantButton}"
+                    Margin="10,0" />
+            <Button Content="Wróć"
+                Style="{StaticResource ImportantButton}"
+                    Margin="10,0" />
+        </StackPanel>
+    </Grid>
+</Window>
