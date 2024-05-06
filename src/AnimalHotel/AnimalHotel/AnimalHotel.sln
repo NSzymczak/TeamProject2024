@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalHotel", "AnimalHotel\AnimalHotel.csproj", "{2097C383-DC77-4452-A522-B0A56A1FDDF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimalHotel", "AnimalHotel\AnimalHotel.csproj", "{2097C383-DC77-4452-A522-B0A56A1FDDF2}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AnimalHotelDatabase", "AnimalHotelDatabase\AnimalHotelDatabase.sqlproj", "{BEABD2E1-35DF-4BA9-BC06-70C810F93631}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalHotel.Core", "AnimalHotel.Core\AnimalHotel.Core.csproj", "{96166146-411C-4643-9656-BE5276F6A108}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimalHotel.Core", "AnimalHotel.Core\AnimalHotel.Core.csproj", "{96166146-411C-4643-9656-BE5276F6A108}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,12 +17,6 @@ Global
 		{2097C383-DC77-4452-A522-B0A56A1FDDF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2097C383-DC77-4452-A522-B0A56A1FDDF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2097C383-DC77-4452-A522-B0A56A1FDDF2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BEABD2E1-35DF-4BA9-BC06-70C810F93631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BEABD2E1-35DF-4BA9-BC06-70C810F93631}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BEABD2E1-35DF-4BA9-BC06-70C810F93631}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{BEABD2E1-35DF-4BA9-BC06-70C810F93631}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BEABD2E1-35DF-4BA9-BC06-70C810F93631}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BEABD2E1-35DF-4BA9-BC06-70C810F93631}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{96166146-411C-4643-9656-BE5276F6A108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{96166146-411C-4643-9656-BE5276F6A108}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96166146-411C-4643-9656-BE5276F6A108}.Release|Any CPU.ActiveCfg = Release|Any CPU
