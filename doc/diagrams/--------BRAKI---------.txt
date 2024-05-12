@@ -1,3 +1,2 @@
-Diagramy aktywności 
 Diagram sekwencji
 Może jakiś jeszcze diagram klas

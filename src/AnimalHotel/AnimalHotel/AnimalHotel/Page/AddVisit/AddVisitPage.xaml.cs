@@ -1,30 +1,22 @@
 ﻿using AnimalHotel.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
-namespace AnimalHotel.Page.AddVisit
+namespace AnimalHotel.Page.AddVisit;
+
+/// <summary>
+/// Logika interakcji dla klasy AddVisitPage.xaml
+/// </summary>
+public partial class AddVisitPage : Window
 {
-    /// <summary>
-    /// Logika interakcji dla klasy AddVisitPage.xaml
-    /// </summary>
-    public partial class AddVisitPage : Window
+    public AddVisitPage(Visit? visit = null)
     {
-        public AddVisitPage(Visit? visit = null)
+        InitializeComponent();
+        visit ??= new Visit();
+        var pageModel = new AddVisitPageModel(new Connection.ConnectToDb(), visit);
+        DataContext = pageModel;
+        Loaded += async (s, e) =>
         {
-            InitializeComponent();
-            visit ??= new Visit();
-            DataContext = new AddVisitPageModel(new Connection.ConnectToDb(), visit);
-        }
+            await pageModel.LoadAnimals();
+        };
     }
 }

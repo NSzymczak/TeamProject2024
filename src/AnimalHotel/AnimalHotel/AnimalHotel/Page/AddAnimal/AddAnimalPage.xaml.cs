@@ -12,7 +12,12 @@ namespace AnimalHotel.Page.AddAnimal
         {
             InitializeComponent();
             animal ??= new Animal();
-            DataContext = new AddAnimalPageModel(new Connection.ConnectToDb(), animal);
+            var pageModel = new AddAnimalPageModel(new Connection.ConnectToDb(), animal);
+            DataContext = pageModel;
+            Loaded += async (s, e) =>
+            {
+                await pageModel.LoadOwners();
+            };
         }
     }
 }

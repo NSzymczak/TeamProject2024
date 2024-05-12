@@ -7,7 +7,7 @@
         d:DataContext="{d:DesignInstance Type=local:AddDailyActivityPageModel}"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Dodaj aktywność" Height="500" Width="400">
+        Title="Dodaj aktywność" Height="550" Width="400">
     <Grid>
         <StackPanel Margin="20">
             <Label Content="Dodaj aktywność"

@@ -39,6 +39,7 @@
             <Label Content="Właściciel" />
             <ComboBox SelectedItem="{Binding Animal.Owner}"
           ItemsSource="{Binding Owners}"
+                      DisplayMemberPath="Name"
           Width="200"
           Style="{StaticResource RoundedComboBox}" />
             <Button Content="Edytuj" Style="{StaticResource NotImportantButton}"

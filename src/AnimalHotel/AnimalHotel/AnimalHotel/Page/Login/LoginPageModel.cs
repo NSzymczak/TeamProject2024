@@ -18,14 +18,14 @@ namespace AnimalHotel.Page.Login
         public void LogIn()
         {
 #if DEBUG
-            (new DailyActivityPage()).Show();
+            //(new DailyActivityPage()).Show();
 #endif
             if (string.IsNullOrEmpty(Login) ||
                 string.IsNullOrEmpty(Password))
             {
                 return;
             }
-            var user = animalHotelDb.User.Where(x => x.Login == Login && x.Password == Password);
+            var user = animalHotelDb.User.FirstOrDefault(x => x.Login == Login && x.Password == Password);
 
             if (user == null)
             {
@@ -37,14 +37,14 @@ namespace AnimalHotel.Page.Login
                 (new DailyActivityPage()).Show();
             }
 
-            if (LoginLefts == 0)
-            {
-                var result = MessageBox.Show("Konto zostało zablokowane!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                if (result == MessageBoxResult.OK)
-                {
-                    Environment.Exit(LoginLefts);
-                }
-            }
+            //if (LoginLefts == 0)
+            //{
+            //    var result = MessageBox.Show("Konto zostało zablokowane!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    if (result == MessageBoxResult.OK)
+            //    {
+            //        Environment.Exit(LoginLefts);
+            //    }
+            //}
         }
     }
 }

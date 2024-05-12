@@ -24,6 +24,7 @@
                 <StackPanel Grid.Column="1" Orientation="Horizontal">
                     <ComboBox Text="{Binding Animals}"
                           SelectedItem="{Binding Visit.Animal}"
+                          DisplayMemberPath="Name"
                           Height="30"
                           Width="150"
                           Style="{StaticResource RoundedComboBox}" />
@@ -59,7 +60,7 @@
                 <Button Content="Dalej"
                         Margin="10"
                         Style="{StaticResource ImportantButton}"
-                        Command="" />
+                        Command="{Binding AddOrEditVisitCommand}" />
                 <Button Content="Wróć"
                         Margin="10"
                         Style="{StaticResource NotImportantButton}" />

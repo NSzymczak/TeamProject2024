@@ -4,8 +4,8 @@
              xmlns:local="clr-namespace:AnimalHotel"
              StartupUri="Page/Login/LoginPage.xaml">
     <Application.Resources>
-        <Brush x:Key="MainBrush">#95411F</Brush>
-        <Brush x:Key="MainBrushTransparent">#A895411F</Brush>
+        <Brush x:Key="MainBrush">#25411F</Brush>
+        <Brush x:Key="MainBrushTransparent">#A825411F</Brush>
 
         <Style x:Key="GreenHeaders" TargetType="DataGridColumnHeader">
             <Setter Property="Background" Value="{StaticResource MainBrush}" />

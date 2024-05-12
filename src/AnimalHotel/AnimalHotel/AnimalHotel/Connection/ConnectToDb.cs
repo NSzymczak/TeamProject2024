@@ -1,6 +1,7 @@
 ﻿using AnimalHotel.Core;
 using AnimalHotel.Model;
 using AnimalHotel.Page.AddAnimal;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,7 +52,7 @@ namespace AnimalHotel.Connection
         /// <returns></returns>
         public Task<IEnumerable<DailyActivity>> GetDailyActivity()
         {
-            return Task.FromResult(animalHotelDb.DailyActivity ?? Enumerable.Empty<DailyActivity>());
+            return Task.FromResult(animalHotelDb.DailyActivity.Include(x => x.Animal) ?? Enumerable.Empty<DailyActivity>());
         }
 
         /// <summary>
