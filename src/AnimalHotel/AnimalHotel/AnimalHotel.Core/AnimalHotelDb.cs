@@ -27,7 +27,18 @@ public partial class AnimalHotelDb : DbContext
         });
         modelBuilder.Entity<Animal>(entity =>
         {
-            entity.HasKey(e => e.ID);
+            entity.HasOne(a => a.Details)
+                  .WithOne(d => d.Animal)
+                  .HasForeignKey<Details>(d => d.AnimalID);
+            entity.HasOne(a => a.FeedingRules)
+                  .WithOne(fr => fr.Animal)
+                  .HasForeignKey<FeedingRules>(fr => fr.AnimalID);
+            entity.HasOne(a => a.Health)
+                  .WithOne(h => h.Animal)
+                  .HasForeignKey<Health>(h => h.AnimalID);
+            entity.HasOne(a => a.WalkRules)
+                  .WithOne(wr => wr.Animal)
+                  .HasForeignKey<WalksRules>(wr => wr.AnimalID);
         });
         modelBuilder.Entity<Details>(entity =>
         {
@@ -61,6 +72,6 @@ public partial class AnimalHotelDb : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Data Source=MSI;Initial Catalog=HorseTracking;Persist Security Info=True;Encrypt=False;User ID=Natka;Password=123456");
+        optionsBuilder.UseSqlServer("Data Source=MSI;Initial Catalog=AnimalHotel;Persist Security Info=True;Encrypt=False;User ID=Natka;Password=123456");
     }
 }

@@ -3,11 +3,7 @@ using AnimalHotel.Model;
 using AnimalHotel.Page.AddOwner;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using System.Windows;
 
 namespace AnimalHotel.Page.AddAnimal
@@ -15,7 +11,17 @@ namespace AnimalHotel.Page.AddAnimal
     public partial class AddAnimalPageModel(ConnectToDb connectToDb, Animal animal) : ObservableObject
     {
         public Animal Animal { get; set; } = animal;
-        public List<Owner> Owners { get; set; }
+        private ObservableCollection<Owner> owners;
+        public ObservableCollection<Owner> Owners { get => owners; set => SetProperty(ref owners, value); }
+
+        public async Task LoadOwners()
+        {
+            var owners = await connectToDb.GetOwners();
+
+            if (owners == null)
+                MessageBox.Show("Ostrzeżenie", "Nie znaleziono żadnych właścicieli. Dodaj najpierw właściciela.", MessageBoxButton.OK);
+            Owners = new ObservableCollection<Owner>(owners!);
+        }
 
         [RelayCommand]
         public async Task AddAnimal()
