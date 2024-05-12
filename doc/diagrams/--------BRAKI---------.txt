@@ -1,3 +1,2 @@
-Diagramy use case
 Diagram sekwencji
 Może jakiś jeszcze diagram klas
