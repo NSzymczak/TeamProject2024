@@ -43,7 +43,7 @@ namespace AnimalHotel.Connection
         /// <returns></returns>
         public Task<IEnumerable<Visit>> GetVisits()
         {
-            return Task.FromResult(animalHotelDb.Visits ?? Enumerable.Empty<Visit>());
+            return Task.FromResult(animalHotelDb.Visit.Include(x=>x.Animal) ?? Enumerable.Empty<Visit>());
         }
 
         /// <summary>
@@ -130,10 +130,10 @@ namespace AnimalHotel.Connection
             var cancellationToken = new CancellationToken();
             try
             {
-                var prevVisit = animalHotelDb.Visits.Where(x => x.ID == visit.ID).FirstOrDefault();
+                var prevVisit = animalHotelDb.Visit.Where(x => x.ID == visit.ID).FirstOrDefault();
                 if (prevVisit is null)
                 {
-                    await animalHotelDb.Visits.AddAsync(visit, cancellationToken);
+                    await animalHotelDb.Visit.AddAsync(visit, cancellationToken);
                 }
                 else
                 {

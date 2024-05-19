@@ -1,6 +1,7 @@
 ﻿using AnimalHotel.Connection;
 using AnimalHotel.Model;
 using CommunityToolkit.Mvvm.Input;
+using System.Windows;
 
 namespace AnimalHotel.Page.AddOwner
 {
@@ -9,14 +10,16 @@ namespace AnimalHotel.Page.AddOwner
         public Owner AnimalOwner { get; set; } = owner;
 
         [RelayCommand]
-        public async Task AddOrEditOwner()
+        public async Task AddOrEditOwner(Window window)
         {
             await connectToDb.AddOrEditOwner(AnimalOwner);
+            await Back(window);
         }
 
         [RelayCommand]
-        public async Task Back()
+        public async Task Back(Window window)
         {
+            window.Close();
         }
     }
 }

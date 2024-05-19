@@ -4,8 +4,8 @@
              xmlns:local="clr-namespace:AnimalHotel"
              StartupUri="Page/Login/LoginPage.xaml">
     <Application.Resources>
-        <Brush x:Key="MainBrush">#25411F</Brush>
-        <Brush x:Key="MainBrushTransparent">#A825411F</Brush>
+        <Brush x:Key="MainBrush">#909090</Brush>
+        <Brush x:Key="MainBrushTransparent">#A8909090</Brush>
 
         <Style x:Key="GreenHeaders" TargetType="DataGridColumnHeader">
             <Setter Property="Background" Value="{StaticResource MainBrush}" />
@@ -63,11 +63,11 @@
             <Setter Property="BorderBrush" Value="{StaticResource MainBrush}" />
             <Setter Property="Width" Value="150" />
             <Setter Property="Height" Value="40" />
-            <Setter Property="BorderThickness" Value="3" />
+            <Setter Property="BorderThickness" Value="1" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="border" BorderThickness="2" BorderBrush="{StaticResource MainBrush}" Background="White">
+                        <Border Name="border" BorderThickness="1" BorderBrush="{StaticResource MainBrush}" Background="White">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                         <ControlTemplate.Triggers>
@@ -162,8 +162,8 @@
                                     <Condition Property="IsMouseOver" Value="True" />
                                     <Condition Property="IsKeyboardFocused" Value="False" />
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="#A895411F" />
-                                <Setter Property="BorderBrush" TargetName="Bd" Value="#A895411F" />
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource ResourceKey=MainBrushTransparent}" />
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ResourceKey=MainBrushTransparent}" />
                             </MultiTrigger>
                             <MultiTrigger>
                                 <MultiTrigger.Conditions>
@@ -171,16 +171,16 @@
                                     <Condition Property="IsMouseOver" Value="False" />
                                     <Condition Property="IsKeyboardFocused" Value="True" />
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="#A895411F" />
-                                <Setter Property="BorderBrush" TargetName="Bd" Value="#A895411F" />
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource ResourceKey=MainBrushTransparent}" />
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ResourceKey=MainBrushTransparent}" />
                             </MultiTrigger>
                             <MultiTrigger>
                                 <MultiTrigger.Conditions>
                                     <Condition Property="IsSelected" Value="True" />
                                     <Condition Property="IsMouseOver" Value="True" />
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="#A895411F" />
-                                <Setter Property="BorderBrush" TargetName="Bd" Value="#A895411F" />
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource ResourceKey=MainBrushTransparent}" />
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ResourceKey=MainBrushTransparent}" />
                             </MultiTrigger>
                             <MultiTrigger>
                                 <MultiTrigger.Conditions>
@@ -188,8 +188,8 @@
                                     <Condition Property="IsMouseOver" Value="False" />
                                     <Condition Property="IsKeyboardFocused" Value="False" />
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="#A895411F" />
-                                <Setter Property="BorderBrush" TargetName="Bd" Value="#A895411F" />
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource ResourceKey=MainBrushTransparent}" />
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ResourceKey=MainBrushTransparent}" />
                             </MultiTrigger>
                             <MultiTrigger>
                                 <MultiTrigger.Conditions>
@@ -197,7 +197,7 @@
                                     <Condition Property="IsMouseOver" Value="False" />
                                     <Condition Property="IsKeyboardFocused" Value="True" />
                                 </MultiTrigger.Conditions>
-                                <Setter Property="BorderBrush" TargetName="Bd" Value="#A895411F" />
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ResourceKey=MainBrushTransparent}" />
                             </MultiTrigger>
                             <MultiTrigger>
                                 <MultiTrigger.Conditions>
@@ -205,8 +205,8 @@
                                     <Condition Property="IsMouseOver" Value="True" />
                                     <Condition Property="IsKeyboardFocused" Value="True" />
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="#A895411F" />
-                                <Setter Property="BorderBrush" TargetName="Bd" Value="#A895411F" />
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource ResourceKey=MainBrushTransparent}" />
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ResourceKey=MainBrushTransparent}" />
                             </MultiTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -216,8 +216,9 @@
 
         <Style x:Key="TextBoxStyle" TargetType="TextBox">
             <Setter Property="Margin" Value="10,5" />
-            <Setter Property="Height" Value="20" />
+            <Setter Property="Height" Value="30" />
             <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="5" />
             <Style.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10" />

@@ -15,7 +15,7 @@ public partial class AnimalHotelDb : DbContext
     public virtual DbSet<FeedingRules> FeedingRules { get; set; }
     public virtual DbSet<Health> Health { get; set; }
     public virtual DbSet<Owner> Owner { get; set; }
-    public virtual DbSet<Visit> Visits { get; set; }
+    public virtual DbSet<Visit> Visit { get; set; }
     public virtual DbSet<WalksRules> WalksRules { get; set; }
     public virtual DbSet<User> User { get; set; }
 

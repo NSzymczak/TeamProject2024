@@ -8,16 +8,26 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
-        Title="DailyActivityPage" d:DesignHeight="900" d:DesignWidth="1200">
+        Title="Dziennik aktywości" d:DesignHeight="900" d:DesignWidth="1200">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
             <RowDefinition />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <DataGrid Margin="20,20,20,20"
+        <StackPanel Orientation="Horizontal">
+            <Image Source="/Resource/paw.png"
+                   Height="100" />
+            <Label Content="Dziennik aktywności"
+               Style="{StaticResource TitleLabel}"
+               VerticalContentAlignment="Center"
+               Margin="30,10,30,0" />
+        </StackPanel>
+        <DataGrid Grid.Row="1"
+            Margin="20,20,20,20"
            ItemsSource="{Binding DailyActivities}"
            AutoGenerateColumns="False"
            CanUserDeleteRows="False"
@@ -33,16 +43,16 @@
             </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn HeaderStyle="{StaticResource GreenHeaders}" Header="Zwierzak" Width="*" Binding="{Binding Animal.Name}" />
-                <DataGridTextColumn HeaderStyle="{StaticResource GreenHeaders}" Header="Data"     Width="*" Binding="{Binding Date}" />
+                <DataGridTextColumn HeaderStyle="{StaticResource GreenHeaders}" Header="Data"     Width="*" Binding="{Binding Date, StringFormat='dd.MM.yyyy'}" />
                 <DataGridTextColumn HeaderStyle="{StaticResource GreenHeaders}" Header="Godzina"  Width="*" Binding="{Binding Hour}" />
                 <DataGridTextColumn HeaderStyle="{StaticResource GreenHeaders}" Header="Notatka"  Width="*" Binding="{Binding AdditionalNotes}" />
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Grid.Row="1"
+        <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
                     Margin="20,5"
                     HorizontalAlignment="Center">
-            <Button Content="Dodaj wizytę" Margin="10" Padding="5"
+            <Button Content="Wizyty" Margin="10" Padding="5"
                     Command="{Binding OpenAddVisitCommand}"
                     Style="{StaticResource ImportantButton}" />
             <Button Content="Dodaj nowy wpis" Margin="10" Padding="5"

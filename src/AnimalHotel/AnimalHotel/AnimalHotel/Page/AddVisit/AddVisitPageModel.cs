@@ -8,9 +8,9 @@ using System.Windows;
 
 namespace AnimalHotel.Page.AddVisit
 {
-    public partial class AddVisitPageModel(ConnectToDb connectToDb, Visit visit) : ObservableObject
+    public partial class AddVisitPageModel(ConnectToDb connectToDb, Model.Visit visit) : ObservableObject
     {
-        public Visit Visit { get; set; } = visit;
+        public Model.Visit Visit { get; set; } = visit;
 
         private ObservableCollection<Animal>? animals;
         public ObservableCollection<Animal>? Animals { get => animals; set => SetProperty(ref animals, value); }
@@ -20,7 +20,10 @@ namespace AnimalHotel.Page.AddVisit
             var animals = await connectToDb.GetAnimals();
 
             if (animals == null)
+            {
                 MessageBox.Show("Ostrzeżenie", "Nie znaleziono żadnych zwierząt", MessageBoxButton.OK);
+                return;
+            }
 
             Animals = new ObservableCollection<Animal>(animals);
         }
@@ -32,12 +35,13 @@ namespace AnimalHotel.Page.AddVisit
         }
 
         [RelayCommand]
-        public async Task Back()
+        public async Task Back(Window window)
         {
+            window.Close();
         }
 
         [RelayCommand]
-        public async Task EditAnimal()
+        public async Task EditAnimal(Window window)
         {
             if (Visit.Animal != null)
             {
@@ -47,6 +51,7 @@ namespace AnimalHotel.Page.AddVisit
             {
                 MessageBox.Show("Ostrzeżenie", "Nie wybrano zwierzaka do edycji", MessageBoxButton.OK);
             }
+            await Back(window);
         }
     }
 }

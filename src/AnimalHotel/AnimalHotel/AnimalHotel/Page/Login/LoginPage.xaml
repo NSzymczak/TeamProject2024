@@ -14,13 +14,16 @@
                FontSize="20"
                HorizontalAlignment="Center"
                Margin="10" />
-        <TextBox Margin="10,0"
+        <TextBox Margin="10,10,10,0"
                  Text="{Binding Login, Mode=TwoWay}"
                  Style="{StaticResource TextBoxStyle}"
+                 VerticalContentAlignment="Center"
+                 Padding="5"
                  Height="40" />
-        <TextBox Margin="10,10,10,0"
-                 Text="{Binding Password, Mode=TwoWay}"
-                 Style="{StaticResource TextBoxStyle}"
+        <PasswordBox Margin="10,10,10,0"
+                     PasswordChanged="PasswordChanged"
+                 VerticalContentAlignment="Center"
+                 Padding="5"
                  Height="40" />
         <Button Content="Zaloguj" Margin="10"
                 Command="{Binding LogInCommand}"

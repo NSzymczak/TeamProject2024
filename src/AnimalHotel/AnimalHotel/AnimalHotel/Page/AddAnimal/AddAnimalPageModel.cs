@@ -19,7 +19,10 @@ namespace AnimalHotel.Page.AddAnimal
             var owners = await connectToDb.GetOwners();
 
             if (owners == null)
+            {
                 MessageBox.Show("Ostrzeżenie", "Nie znaleziono żadnych właścicieli. Dodaj najpierw właściciela.", MessageBoxButton.OK);
+                return;
+            }
             Owners = new ObservableCollection<Owner>(owners!);
         }
 
@@ -30,14 +33,15 @@ namespace AnimalHotel.Page.AddAnimal
         }
 
         [RelayCommand]
-        public Task Back()
+        public Task Back(Window window)
         {
             //Close somehow
+            window.Close();
             return Task.CompletedTask;
         }
 
         [RelayCommand]
-        public async Task EditOwner()
+        public async Task EditOwner(Window window)
         {
             if (Animal.Owner != null)
             {
@@ -47,6 +51,7 @@ namespace AnimalHotel.Page.AddAnimal
             {
                 MessageBox.Show("Ostrzeżenie", "Nie wybrano właściciela do edycji", MessageBoxButton.OK);
             }
+            await Back(window);
         }
     }
 }

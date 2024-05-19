@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using AnimalHotel.Page.Visit;
+using System.Windows;
 
 namespace AnimalHotel.Page.AddDailyActivity
 {
@@ -9,7 +10,12 @@ namespace AnimalHotel.Page.AddDailyActivity
             InitializeComponent();
 
             dailyActivity ??= new Model.DailyActivity();
-            DataContext = new AddDailyActivityPageModel(new Connection.ConnectToDb(), dailyActivity);
+            var pageModel = new AddDailyActivityPageModel(new Connection.ConnectToDb(), dailyActivity);
+            DataContext = pageModel;
+            Loaded += async (s, e) =>
+            {
+                await pageModel.LoadAnimals();
+            };
         }
     }
 }

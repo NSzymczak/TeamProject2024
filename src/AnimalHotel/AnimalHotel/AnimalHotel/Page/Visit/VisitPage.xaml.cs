@@ -1,0 +1,34 @@
+﻿using AnimalHotel.Page.DailyActivity;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace AnimalHotel.Page.Visit
+{
+    /// <summary>
+    /// Logika interakcji dla klasy VisitPage.xaml
+    /// </summary>
+    public partial class VisitPage : Window
+    {
+        public VisitPage()
+        {
+            InitializeComponent();
+            var pageModel = new VisitPageModel(new Connection.ConnectToDb());
+            DataContext = pageModel;
+            Loaded += async (s, e) =>
+            {
+                await pageModel.LoadVisits();
+            };
+        }
+    }
+}

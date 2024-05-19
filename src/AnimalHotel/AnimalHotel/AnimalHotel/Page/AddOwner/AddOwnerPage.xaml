@@ -7,6 +7,7 @@
         d:DataContext="{d:DesignInstance Type=local:AddOwnerPageModel}"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
+        x:Name="window"
         Title="Dodaj właściciela" Height="400" Width="400">
     <Grid>
         <StackPanel Margin="20">
@@ -76,10 +77,14 @@
             <StackPanel Orientation="Horizontal">
                 <Button Content="Dalej"
                     Margin="10"
-                    Style="{StaticResource ImportantButton}" />
+                    Style="{StaticResource ImportantButton}"
+                    Command="{Binding AddOrEditOwnerCommand}"
+                    CommandParameter="{Binding ElementName=window}" />
                 <Button Content="Wróć"
                         Margin="10"
-                    Style="{StaticResource NotImportantButton}" />
+                    Style="{StaticResource NotImportantButton}"
+                        Command="{Binding AddOrEditOwnerCommand}"
+                        CommandParameter="{Binding ElementName=window}" />
             </StackPanel>
         </StackPanel>
     </Grid>

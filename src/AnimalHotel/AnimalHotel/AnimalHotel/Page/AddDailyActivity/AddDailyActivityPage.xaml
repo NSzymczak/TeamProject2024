@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:AnimalHotel.Page.AddDailyActivity"
         d:DataContext="{d:DesignInstance Type=local:AddDailyActivityPageModel}"
         mc:Ignorable="d"
+        x:Name="window"
         WindowStartupLocation="CenterScreen"
         Title="Dodaj aktywność" Height="550" Width="400">
     <Grid>
@@ -22,15 +23,15 @@
                         Style="{StaticResource SmalLabel}"
                         Grid.Column="0" />
                 <StackPanel Grid.Column="1" Orientation="Horizontal">
-                    <ComboBox Text="{Binding Animals}"
-          SelectedItem="{Binding DailyActivity.Animal}"
-          Height="30"
-          Width="150"
-          Style="{StaticResource RoundedComboBox}" />
+                    <ComboBox ItemsSource="{Binding Animals}"
+                              SelectedItem="{Binding DailyActivity.Animal}"
+                              Height="30"
+                              Width="150"
+                              Style="{StaticResource RoundedComboBox}" />
                     <Button Content="Edytuj" Style="{StaticResource NotImportantButton}"
-    Height="25" Width="50" FontSize="10"
-    Margin="10,0"
-    Command="{Binding EditAnimalCommand}" />
+                            Height="25" Width="50" FontSize="10"
+                            Margin="10,0"
+                            Command="{Binding EditAnimalCommand}" />
                 </StackPanel>
             </Grid>
             <Grid Margin="10">
@@ -72,10 +73,14 @@
                 <Button Content="Dalej"
                         Margin="10"
                         Style="{StaticResource ImportantButton}"
-                        Command="" />
+                        Command="{Binding AddOrEditDailyActivityCommand}"
+                        CommandParameter="{Binding ElementName=window}" />
+
                 <Button Content="Wróć"
                         Margin="10"
-                        Style="{StaticResource NotImportantButton}" />
+                        Style="{StaticResource NotImportantButton}"
+                        Command="{Binding BackCommand}"
+                        CommandParameter="{Binding ElementName=window}" />
             </StackPanel>
         </StackPanel>
     </Grid>

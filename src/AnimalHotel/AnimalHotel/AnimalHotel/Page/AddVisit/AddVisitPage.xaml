@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:AnimalHotel.Page.AddVisit"
         d:DataContext="{d:DesignInstance Type=local:AddVisitPageModel}"
         mc:Ignorable="d"
+        x:Name="window"
         WindowStartupLocation="CenterScreen"
         Title="Dodaj wizytę" Height="600" Width="400">
     <Grid>
@@ -22,8 +23,9 @@
                         Style="{StaticResource SmalLabel}"
                         Grid.Column="0" />
                 <StackPanel Grid.Column="1" Orientation="Horizontal">
-                    <ComboBox Text="{Binding Animals}"
+                    <ComboBox
                           SelectedItem="{Binding Visit.Animal}"
+                          ItemsSource="{Binding Animals}"
                           DisplayMemberPath="Name"
                           Height="30"
                           Width="150"
@@ -60,10 +62,12 @@
                 <Button Content="Dalej"
                         Margin="10"
                         Style="{StaticResource ImportantButton}"
-                        Command="{Binding AddOrEditVisitCommand}" />
+                        Command="{Binding AddOrEditVisitCommand}"
+                        CommandParameter="{Binding ElementName=window}" />
                 <Button Content="Wróć"
                         Margin="10"
-                        Style="{StaticResource NotImportantButton}" />
+                        Style="{StaticResource NotImportantButton}"
+                        CommandParameter="{Binding ElementName=window}" />
             </StackPanel>
         </StackPanel>
     </Grid>

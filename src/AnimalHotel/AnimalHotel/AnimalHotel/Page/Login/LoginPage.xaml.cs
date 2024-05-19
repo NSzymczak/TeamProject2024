@@ -19,10 +19,21 @@ namespace AnimalHotel.Page.Login
     /// </summary>
     public partial class LoginPage : Window
     {
+        private readonly LoginPageModel pageModel;
+
         public LoginPage()
         {
             InitializeComponent();
-            DataContext = new LoginPageModel(new Core.AnimalHotelDb());
+            pageModel = new LoginPageModel(new Core.AnimalHotelDb());
+            DataContext = pageModel;
+        }
+
+        private void PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (pageModel != null)
+            {
+                pageModel.Password = ((PasswordBox)sender).Password;
+            }
         }
     }
 }

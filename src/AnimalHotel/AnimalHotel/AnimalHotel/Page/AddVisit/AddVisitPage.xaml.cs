@@ -8,10 +8,10 @@ namespace AnimalHotel.Page.AddVisit;
 /// </summary>
 public partial class AddVisitPage : Window
 {
-    public AddVisitPage(Visit? visit = null)
+    public AddVisitPage(Model.Visit? visit = null)
     {
         InitializeComponent();
-        visit ??= new Visit();
+        visit ??= new Model.Visit();
         var pageModel = new AddVisitPageModel(new Connection.ConnectToDb(), visit);
         DataContext = pageModel;
         Loaded += async (s, e) =>

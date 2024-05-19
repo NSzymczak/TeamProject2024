@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:AnimalHotel.Page.AddAnimal"
         d:DataContext="{d:DesignInstance Type=local:AddAnimalPageModel}"
         mc:Ignorable="d"
+        x:Name="window"
         WindowStartupLocation="CenterScreen"
         Title="Dodaj zwierzaka" Height="450" Width="800">
     <Grid>
@@ -20,11 +21,15 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0"
-               Grid.ColumnSpan="2"
-               Content="Dane zwierzaka"
-               HorizontalAlignment="Center"
-               FontSize="25" />
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Center">
+            <Image Source="/Resource/paw.png"
+                   Height="50" />
+            <Label Content="Dane zwierzaka"
+                    FontSize="25" />
+        </StackPanel>
         <StackPanel Orientation="Horizontal"
                     Grid.Row="1"
                     Grid.Column="0">
@@ -38,10 +43,10 @@
                     Grid.Column="1">
             <Label Content="Właściciel" />
             <ComboBox SelectedItem="{Binding Animal.Owner}"
-          ItemsSource="{Binding Owners}"
+                      ItemsSource="{Binding Owners}"
                       DisplayMemberPath="Name"
-          Width="200"
-          Style="{StaticResource RoundedComboBox}" />
+                      Width="200"
+                      Style="{StaticResource RoundedComboBox}" />
             <Button Content="Edytuj" Style="{StaticResource NotImportantButton}"
                     Height="25" Width="50" FontSize="10"
                     Margin="10,0"
@@ -197,10 +202,12 @@
                     HorizontalAlignment="Center">
             <Button Content="Dodaj"
                 Style="{StaticResource ImportantButton}"
-                    Margin="10,0" />
+                    Margin="10,0"
+                CommandParameter="{Binding ElementName=window}" />
             <Button Content="Wróć"
                 Style="{StaticResource NotImportantButton}"
-                    Margin="10,0" />
+                    Margin="10,0"
+                CommandParameter="{Binding ElementName=window}" />
         </StackPanel>
     </Grid>
 </Window>

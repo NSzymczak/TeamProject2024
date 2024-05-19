@@ -3,6 +3,7 @@ using AnimalHotel.Page.AddAnimal;
 using AnimalHotel.Page.AddDailyActivity;
 using AnimalHotel.Page.AddOwner;
 using AnimalHotel.Page.AddVisit;
+using AnimalHotel.Page.Visit;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
@@ -30,9 +31,10 @@ namespace AnimalHotel.Page.DailyActivity
         }
 
         [RelayCommand]
-        public static void AddNewDailyActivites()
+        public async Task AddNewDailyActivites()
         {
             (new AddDailyActivityPage()).ShowDialog();
+            await LoadDailyActivity();
         }
 
         [RelayCommand]
@@ -50,7 +52,7 @@ namespace AnimalHotel.Page.DailyActivity
         [RelayCommand]
         public static void OpenAddVisit()
         {
-            (new AddVisitPage()).ShowDialog();
+            (new VisitPage()).ShowDialog();
         }
     }
 }
